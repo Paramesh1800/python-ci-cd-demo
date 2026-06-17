@@ -46,5 +46,6 @@ jobs:
             cd ~/app/python-ci-cd-demo
             git pull
             source venv/bin/activate
-            pkill -f "python app.py" || true
-            nohup python app.py > app.log 2>&1 &
+            fuser -k 8000/tcp || true
+            nohup python app.py > app.log 2>&1 < /dev/null &
+            sleep 2
