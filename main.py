@@ -1,9 +1,11 @@
-def add(a, b):
-    return a + b
+from flask import Flask
 
-def sub(a, b):
-    return a - b
+app = Flask(_name_)
 
-if __name__ == "__main__":
-    print("Addition:", add(10, 5))
-    print("Subtraction:", sub(10, 5))
+
+@app.route("/")
+def index():
+    return "Hello from Flask!"
+
+if _name_ == "_main_":
+    app.run(host="0.0.0.0", port=8000)

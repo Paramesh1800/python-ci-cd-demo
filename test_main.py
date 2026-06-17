@@ -1,10 +1,7 @@
-from main import add,sub
+import app
 
-def test_add():
-    assert add(1,2)==3
-def test_add_neg():
-    assert add(-1,-1)==-2
-def test_sub():
-    assert sub(7,5)==2
-def test_sub_neg():
-    assert sub(9,8)
+def test_index():
+    client = app.app.test_client()
+    rv = client.get("/")
+    assert rv.status_code == 200
+    assert rv.get_data(as_text=True) == "Hello from Flask!"
